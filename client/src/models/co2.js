@@ -10,6 +10,9 @@ Co2Data.prototype.getData = function () {
   request.get()
   .then((co2Collection) => {
     PubSub.publish('co2Collection:data-loaded', co2Collection);
+    console.log('data loaded!');
   })
   .catch(console.error);
 };
+
+module.exports = Co2Data;
