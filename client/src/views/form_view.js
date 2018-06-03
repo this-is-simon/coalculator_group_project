@@ -17,13 +17,12 @@ FormView.prototype.bindEvents = function () {
     const submitButton = document.querySelector('#submit');
     submitButton.addEventListener('click', (event) => {
       event.preventDefault();
-
       this.sendFormToAPI(carValues, trainValues);
     });
   });
 };
 
-FormView.prototype.sendFormToAPI = function(car,train) {
+FormView.prototype.sendFormToAPI = function(carValues,trainValues) {
   console.log(car);
   console.log(train);
 }
