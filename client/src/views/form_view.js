@@ -6,7 +6,10 @@ const FormView = function(element){
 
 FormView.prototype.bindEvents = function () {
   PubSub.subscribe('co2Collection:data-loaded', (event) => {
-    console.log(event.detail);
+    const carField = document.querySelector('#car');
+    carField.value = event.detail[0].car;
+    const trainField = document.querySelector('#train');
+    trainField.value = event.detail[0].train;
   });
 };
 
