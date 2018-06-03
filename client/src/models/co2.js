@@ -17,14 +17,15 @@ Co2Data.prototype.getData = function () {
 };
 
 Co2Data.prototype.setupSelectListener = function () {
-  PubSub.subscribe('FormView:updated-data-ready',(evt)=>{
+  PubSub.subscribe('FormView:updated-data-ready', (evt)=>{
     this.updateData(evt.detail)
-    // console.log(evt);
   });
 };
 
 Co2Data.prototype.updateData = function (evt) {
+  console.log(evt);
   const request = new Request(this.url);
+  request.put(evt, this.id)
 };
 
 module.exports = Co2Data;

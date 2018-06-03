@@ -24,16 +24,16 @@ FormView.prototype.bindEvents = function () {
       console.log('detail of car submit:', carValues);
       console.log('detail of train submit:', trainValues);
       this.sendFormToModel(carValues, trainValues);
-      //TODO fix broken updated data - data is not updating on click
   });
 };
 
-FormView.prototype.sendFormToModel = function(carValues,trainValues) {
+FormView.prototype.sendFormToModel = function(carValues, trainValues) {
   const allData = {
       car: carValues,
       train: trainValues
   };
   PubSub.publish('FormView:updated-data-ready', allData);
+  console.log('allData:', allData);
 };
 
 module.exports = FormView;

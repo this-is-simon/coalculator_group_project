@@ -4,8 +4,6 @@ const ObjectID = require('mongodb').ObjectID;
 
 const co2Router = function(co2Collection) {
 
-
-
   // router.post('/', (req, res) => {
   //   const newCo2Data = req.body;
   //   co2Collection
@@ -18,16 +16,12 @@ const co2Router = function(co2Collection) {
   //     });
   // });
 
-
-
   router.get('/', (req, res) => {
     co2Collection
       .find()
       .toArray()
       .then((docs) => res.json(docs));
   });
-
-
 
   router.put('/:id', (req, res) => {
     const id = req.params.id;
