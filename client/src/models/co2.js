@@ -3,6 +3,7 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const Co2Data = function(url){
   this.url = url;
+  this.id = null;
 }
 
 Co2Data.prototype.getData = function () {
@@ -10,7 +11,8 @@ Co2Data.prototype.getData = function () {
   request.get()
   .then((co2Collection) => {
     PubSub.publish('co2Collection:data-loaded', co2Collection);
-    console.log('data loaded!');
+    this.id = co2Collection[0]._id;
+    console.log(this.id);
   })
   .catch(console.error);
 };

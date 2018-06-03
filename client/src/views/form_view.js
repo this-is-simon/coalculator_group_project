@@ -24,7 +24,7 @@ FormView.prototype.bindEvents = function () {
       evt.preventDefault();
       console.log('detail of submit:', evt.target.car.value);
       console.log('detail of submit:', evt.target.train.value);
-      this.sendFormToModel(idValues,carValues, trainValues);
+      this.sendFormToModel(idValues, carValues, trainValues);
       //TODO fix broken updated data - data is not updating on click
   });
 };
