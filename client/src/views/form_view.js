@@ -7,6 +7,7 @@ const FormView = function(element){
 FormView.prototype.bindEvents = function () {
   PubSub.subscribe('co2Collection:data-loaded', (event) => {
     // populate form with data from api
+    const idValues = event.detail[0]._id;
     const carField = document.querySelector('#car');
     const carValues = event.detail[0].car;
     carField.value = carValues;
@@ -17,14 +18,19 @@ FormView.prototype.bindEvents = function () {
     const submitButton = document.querySelector('#submit');
     submitButton.addEventListener('click', (event) => {
       event.preventDefault();
-      this.sendFormToAPI(carValues, trainValues);
+      this.sendFormToAPI(idValues,carValues, trainValues);
     });
   });
 };
 
-FormView.prototype.sendFormToAPI = function(carValues,trainValues) {
-  console.log(car);
-  console.log(train);
-}
+FormView.prototype.sendFormToAPI = function(idValues,carValues,trainValues) {
+  const values = {
+      _id: idValues,
+      car: carValues,
+      train: trainValues
+  };
+  PubSub.publish('FormView:updated-data-ready', values);
+  console.log(values);
+};
 
 module.exports = FormView;
