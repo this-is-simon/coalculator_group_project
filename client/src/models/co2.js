@@ -12,7 +12,6 @@ Co2Data.prototype.getData = function () {
   .then((co2Collection) => {
     PubSub.publish('co2Collection:data-loaded', co2Collection);
     this.id = co2Collection[0]._id;
-    console.log(this.id);
   })
   .catch(console.error);
 };
