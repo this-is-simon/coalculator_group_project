@@ -12,8 +12,11 @@ FormView.prototype.bindEvents = function () {
     const carValues = event.detail[0].car;
     const trainField = document.querySelector('#train');
     const trainValues = event.detail[0].train;
+    const meatDropdown = document.querySelector('#meatDropdown');
+    const meatValues = event.detail[0].meat;
     trainField.value = trainValues;
     carField.value = carValues;
+    meatDropdown.value = meatValues
 
     });
 
@@ -21,8 +24,6 @@ FormView.prototype.bindEvents = function () {
       evt.preventDefault();
       const carValues = evt.target.car.value;
       const trainValues = evt.target.train.value;
-      console.log('detail of car submit:', carValues);
-      console.log('detail of train submit:', trainValues);
       this.sendFormToModel(carValues, trainValues);
   });
 };

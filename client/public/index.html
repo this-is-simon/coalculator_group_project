@@ -17,18 +17,18 @@
           <label for="train">Train Miles Per Month:</label>
           <input type="text" id="train"/>
         </div>
-        <div>
+        <!-- <div>
           <label for="recycle">Do you recycle?</label><br>
           <input type="radio" name="recycle" value="yes"> Yes<br>
           <input type="radio" name="recycle" value="no"> No<br>
-        </div>
+        </div> -->
         <div>
           <label for="meat">How often do you eat meat?</label><br>
-          <select name="meat">
-          <option value="most">Meat in most meals</option>
-          <option value="some">Meat in some meals</option>
-          <option value="veg">Vegetarian</option>
-          <option value="vegan">Vegan</option>
+          <select id="meatDropdown" name="meat">
+          <option value=1.5>Meat in most meals</option>
+          <option value=1>Meat in some meals</option>
+          <option value=0.5>Vegetarian</option>
+          <option value=0 >Vegan</option>
           </select>
         </div>
         <button type="submit" id="submit" value="submit">Submit</button>
