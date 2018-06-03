@@ -1,7 +1,8 @@
 const PubSub = require("../helpers/pub_sub.js");
 
-const FormView = function(element){
-  this.element = element;
+const FormView = function(form){
+  this.form = form;
+  this.allData = null;
 };
 
 FormView.prototype.bindEvents = function () {
@@ -10,27 +11,31 @@ FormView.prototype.bindEvents = function () {
     const idValues = event.detail[0]._id;
     const carField = document.querySelector('#car');
     const carValues = event.detail[0].car;
-    carField.value = carValues;
     const trainField = document.querySelector('#train');
     const trainValues = event.detail[0].train;
-    trainField.value = trainValues
+    trainField.value = trainValues;
+    carField.value = carValues;
 
-    const submitButton = document.querySelector('#submit');
-    submitButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      this.sendFormToAPI(idValues,carValues, trainValues);
     });
+
+    // const form = document.querySelector('#form');
+
+    this.form.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      console.log('detail of submit:', evt.target.car.value);
+      console.log('detail of submit:', evt.target.train.value);
+      this.sendFormToModel(idValues,carValues, trainValues);
+      //TODO fix broken updated data - data is not updating on click
   });
 };
 
-FormView.prototype.sendFormToAPI = function(idValues,carValues,trainValues) {
-  const values = {
+FormView.prototype.sendFormToModel = function(idValues,carValues,trainValues) {
+  const allData = {
       _id: idValues,
       car: carValues,
       train: trainValues
   };
   PubSub.publish('FormView:updated-data-ready', values);
-  console.log(values);
 };
 
 module.exports = FormView;

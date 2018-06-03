@@ -37,12 +37,12 @@ const co2Router = function(co2Collection) {
         { _id: ObjectID(id) },
         { $set: updatedCo2 }
       )
-        .then(() => {
-          co2Collection
-           .find()
-           .toArray()
-           .then((docs) => res.json(docs));
-        });
+      .then(() => {
+        co2Collection
+         .find()
+         .toArray()
+         .then((docs) => res.json(docs));
+      });
   });
 
   return router;
