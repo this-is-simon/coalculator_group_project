@@ -15,4 +15,13 @@ Co2Data.prototype.getData = function () {
   .catch(console.error);
 };
 
+Co2Data.prototype.updateData = function () {
+  const request = new Request(this.url);
+  request.put()
+  .then((co2Collection) => {
+    PubSub.publish('co2Collection:data-updates', co2Collection);
+  })
+  .catch(console.error);
+};
+
 module.exports = Co2Data;
