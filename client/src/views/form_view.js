@@ -16,22 +16,24 @@ FormView.prototype.bindEvents = function () {
     const meatValues = event.detail[0].meat;
     trainField.value = trainValues;
     carField.value = carValues;
-    meatDropdown.value = meatValues
-
+    meatDropdown.value = meatValues;
     });
 
     this.form.addEventListener('submit', (evt) => {
       evt.preventDefault();
       const carValues = evt.target.car.value;
       const trainValues = evt.target.train.value;
-      this.sendFormToModel(carValues, trainValues);
+      const meatValues = evt.target.meat.value;
+
+      this.sendFormToModel(carValues, trainValues, meatValues);
   });
 };
 
-FormView.prototype.sendFormToModel = function(carValues, trainValues) {
+FormView.prototype.sendFormToModel = function(carValues, trainValues, meatValues) {
   const allData = {
       car: carValues,
-      train: trainValues
+      train: trainValues,
+      meat: meatValues
   };
   PubSub.publish('FormView:updated-data-ready', allData);
   console.log('allData:', allData);
