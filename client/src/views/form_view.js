@@ -12,10 +12,14 @@ FormView.prototype.bindEvents = function () {
     const carValues = event.detail[0].car;
     const trainField = document.querySelector('#train');
     const trainValues = event.detail[0].train;
+    const planeField = document.querySelector('#plane');
+    const planeValues = event.detail[0].plane;
     const meatDropdown = document.querySelector('#meatDropdown');
     const meatValues = event.detail[0].meat;
+
     trainField.value = trainValues;
     carField.value = carValues;
+    planeField.value = planeValues;
     meatDropdown.value = meatValues;
     });
 
@@ -23,19 +27,22 @@ FormView.prototype.bindEvents = function () {
       evt.preventDefault();
       const carValues = evt.target.car.value;
       const trainValues = evt.target.train.value;
+      const planeValues = evt.target.plane.value;
       const meatValues = evt.target.meat.value;
 
-      this.sendFormToModel(carValues, trainValues, meatValues);
+      this.sendFormToModel(carValues, trainValues, planeValues, meatValues);
   });
 };
 
-FormView.prototype.sendFormToModel = function(carValues, trainValues, meatValues) {
+FormView.prototype.sendFormToModel = function(carValues, trainValues, planeValues, meatValues) {
   const allData = {
       car: carValues,
       train: trainValues,
+      plane: planeValues,
       meat: meatValues
   };
   PubSub.publish('FormView:updated-data-ready', allData);
+  console.log('AllData:',  allData);
 };
 
 module.exports = FormView;
