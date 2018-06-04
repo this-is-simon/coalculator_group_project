@@ -7,5 +7,6 @@ db.co2Collection.insertOne({
   plane: 'I am a plane',
   recycle: '0.6',
   heating: '8.1',
-  meat: 0
+  pets: '0',
+  meat: '0'
 });

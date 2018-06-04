@@ -25,6 +25,14 @@ FormView.prototype.bindEvents = function () {
     const heatingFieldTimer = document.querySelector('#heating_timer');
     const heatingFieldOff = document.querySelector('#heating_off');
     const heatingValues = event.detail[0].heating;
+
+    const petsField0 = document.querySelector('#pets_0');
+    const petsField1 = document.querySelector('#pets_1');
+    const petsField2 = document.querySelector('#pets_2');
+    const petsField3 = document.querySelector('#pets_3');
+    const petsField4 = document.querySelector('#pets_4');
+    const petsValues = event.detail[0].pets;
+
     const meatDropdown = document.querySelector('#meatDropdown');
     const meatValues = event.detail[0].meat;
 
@@ -46,6 +54,23 @@ FormView.prototype.bindEvents = function () {
       heatingFieldOff.checked = true;
     };
 
+    switch(petsValues) {
+    case '0':
+        petsField0.checked = true;
+        break;
+    case '1':
+        petsField1.checked = true;
+        break;
+    case '2':
+        petsField2.checked = true;
+        break;
+    case '3':
+        petsField3.checked = true;
+        break;
+    case '4':
+        petsField4.checked = true;
+        break;
+    };
 
     trainField.value = trainValues;
     carField.value = carValues;
@@ -60,19 +85,21 @@ FormView.prototype.bindEvents = function () {
       const planeValues = evt.target.plane.value;
       const recycleValues = evt.target.recycle.value;
       const heatingValues = evt.target.heating.value;
+      const petsValues = evt.target.pets.value;
       const meatValues = evt.target.meat.value;
 
-      this.sendFormToModel(carValues, trainValues, planeValues, recycleValues, heatingValues, meatValues);
+      this.sendFormToModel(carValues, trainValues, planeValues, recycleValues, heatingValues, petsValues, meatValues);
   });
 };
 
-FormView.prototype.sendFormToModel = function(carValues, trainValues, planeValues, recycleValues, heatingValues, meatValues) {
+FormView.prototype.sendFormToModel = function(carValues, trainValues, planeValues, recycleValues, heatingValues, petsValues, meatValues) {
   const allData = {
       car: carValues,
       train: trainValues,
       plane: planeValues,
       recycle: recycleValues,
       heating: heatingValues,
+      pets: petsValues,
       meat: meatValues
   };
   PubSub.publish('FormView:updated-data-ready', allData);
