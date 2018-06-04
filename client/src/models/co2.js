@@ -15,7 +15,7 @@ Co2Data.prototype.getData = function () {
   })
   .catch(console.error);
 };
-
+//TODO Rename setupSelectListener
 Co2Data.prototype.setupSelectListener = function () {
   PubSub.subscribe('FormView:updated-data-ready', (evt)=>{
     this.updateData(evt.detail)
@@ -23,7 +23,6 @@ Co2Data.prototype.setupSelectListener = function () {
 };
 
 Co2Data.prototype.updateData = function (evt) {
-  console.log(evt);
   const request = new Request(this.url);
   request.put(evt, this.id)
 };
