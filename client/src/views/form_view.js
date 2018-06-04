@@ -14,17 +14,22 @@ FormView.prototype.bindEvents = function () {
     const trainValues = event.detail[0].train;
     const planeField = document.querySelector('#plane');
     const planeValues = event.detail[0].plane;
-    const recycleField = document.querySelector('input[name="recycle"]:checked');
-      console.log('recycleField:', recycleField);
+    const recycleFieldYes = document.querySelector('#recycle_yes');
+    const recycleFieldNo = document.querySelector('#recycle_no');
+      // console.log('recycleField:', recycleField);
     const recycleValues = event.detail[0].recycle;
       console.log('recycleValues:', recycleValues);
     const meatDropdown = document.querySelector('#meatDropdown');
     const meatValues = event.detail[0].meat;
 
+    const recycleSelected = (recycleValues === '0.6');
+    recycleFieldYes.checked = recycleSelected;
+    recycleFieldNo.checked = !recycleSelected;
+
     trainField.value = trainValues;
     carField.value = carValues;
     planeField.value = planeValues;
-    recycleField.value = recycleValues;
+    // recycleField.value = recycleValues;
     meatDropdown.value = meatValues;
     });
 
