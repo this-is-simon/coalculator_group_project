@@ -11,7 +11,11 @@ Calculator.prototype.formSubmitListener = function () {
 };
 
 Calculator.prototype.calculateData = function (evt) {
-  console.log('calculator data:', evt);
+  const totalCarCo2Tonnes = this.calculateCar(evt);
+};
+
+Calculator.prototype.calculateCar = function (evt) {
+  return evt.car * 0.006;
 };
 
 module.exports = Calculator;
