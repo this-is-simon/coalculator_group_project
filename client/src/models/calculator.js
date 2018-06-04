@@ -23,6 +23,9 @@ Calculator.prototype.calculateData = function (evt) {
   const simpleTotals = totalRecyclingTonnes + totalHeatingTonnes + totalPetsTonnes + totalMeatTonnes;
 
   const displayableTotal = complexTotals + simpleTotals;
+
+  PubSub.publish('Calculator:displayable-total', displayableTotal);
+
 };
 
 Calculator.prototype.calculateTotalCo2Tonnage = function (totalCar, totalTrain, totalPlane) {
