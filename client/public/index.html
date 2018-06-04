@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Coalculator</title>
-    <script src="js/bundle.js"></script>
-  </head>
-  <body>
-    <h1>Coalculator</h1>
-    <div class="">
-      <form id="form">
-        <div>
-          <label for="car">Car Miles Per Year:</label>
-          <input type="text" id="car"/>
+<head>
+  <meta charset="utf-8">
+  <title>Coalculator</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Megrim|Dosis" rel="stylesheet">
+  <script src="js/bundle.js"></script>
+</head>
+<body>
+  <h1><a href="/">Coalculator</a></h1>
+  <div class="main-grid">
+    <form id="form">
+      <div id="form-item">
+        <label for="car">How many miles do you drive a year? </label>
+        <input type="text" id="car"/>
+      </div>
+      <div id="form-item">
+        <label for="train">How many miles do you travel by train a month? </label>
+        <input type="text" id="train"/>
+      </div>
+      <div id="form-item">
+        <label for="plane">How many return flights do you take a year? </label>
+        <input type="text" id="plane"/>
+      </div>
+      <div id="form-item">
+        <label for="recycle">Do you recycle? </label><br>
+        <div class="radio-group">
+          <input type="radio" class="radio-item" name="recycle" id="recycle_yes" value=0.6> Yes<br>
+          <input type="radio" class="radio-item" name="recycle" id="recycle_no" value=1.8> No<br>
         </div>
-        <div>
-          <label for="train">Train Miles Per Month:</label>
-          <input type="text" id="train"/>
+      </div>
+      <div id="form-item">
+        <label for="heating">How is your heating? </label><br>
+        <div class="radio-group">
+          <input type="radio" class="radio-item" name="heating" id="heating_on" value=8.1> Always on<br>
+          <input type="radio" class="radio-item" name="heating" id="heating_timer" value=7.7> On a timer<br>
+          <input type="radio" class="radio-item" name="heating" id="heating_off" value=0> Always off<br>
         </div>
-        <div>
-          <label for="plane">Plane Trips Per Year:</label>
-          <input type="text" id="plane"/>
+      </div>
+      <div id="form-item">
+        <label for="pets">How many pets do you have? </label><br>
+        <div class="radio-group">
+          <input type="radio" class="radio-item" name="pets" id="pets_0" value=0> 0<br>
+          <input type="radio" class="radio-item" name="pets" id="pets_1" value=1> 1<br>
+          <input type="radio" class="radio-item" name="pets" id="pets_2" value=2> 2<br>
+          <input type="radio" class="radio-item" name="pets" id="pets_3" value=3> 3<br>
+          <input type="radio" class="radio-item" name="pets" id="pets_4" value=4> 4+<br>
         </div>
-        <div>
-          <label for="recycle">Do you recycle?</label><br>
-          <input type="radio" name="recycle" id="recycle_yes" value=0.6> Yes<br>
-          <input type="radio" name="recycle" id="recycle_no" value=1.8> No<br>
-        </div>
-        <div>
-          <label for="heating">Heating?</label><br>
-          <input type="radio" name="heating" id="heating_on" value=8.1> Always on<br>
-          <input type="radio" name="heating" id="heating_timer" value=7.7> On a timer<br>
-          <input type="radio" name="heating" id="heating_off" value=0> Always off<br>
-        </div>
-        <div>
-          <label for="pets">How many pets do you have?</label><br>
-          <input type="radio" name="pets" id="pets_0" value=0> 0<br>
-          <input type="radio" name="pets" id="pets_1" value=1> 1<br>
-          <input type="radio" name="pets" id="pets_2" value=2> 2<br>
-          <input type="radio" name="pets" id="pets_3" value=3> 3<br>
-          <input type="radio" name="pets" id="pets_4" value=4> 4+<br>
-        </div>
-        <div>
-          <label for="meat">How often do you eat meat?</label><br>
-          <select id="meatDropdown" name="meat">
-          <option value=1.5>Meat in most meals</option>
-          <option value=1>Meat in some meals</option>
-          <option value=0.5>Vegetarian</option>
-          <option value=0 >Vegan</option>
-          </select>
-        </div>
-        <button type="submit" id="submit" value="submit">Submit</button>
-      </form>
-    </div>
+      </div>
+      <div id="form-item">
+        <label for="meat">How much meat do you eat? </label>
+        <select id="meatDropdown" name="meat">
+          <option value=1.5>I have meat in most meals</option>
+          <option value=1>I have meat in some meals</option>
+          <option value=0.5>I am a vegetarian</option>
+          <option value=0 >I am a vegan</option>
+        </select>
+      </div>
+      <button type="submit" id="submit" value="su
+      bmit">Submit</button>
+    </form>
     <div id="results-view">
+      <p>Fill in the form on the left to find out your carbon footprint.</p>
     </div>
-  </body>
+  </div>
+</body>
 </html>

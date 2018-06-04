@@ -22,7 +22,7 @@ Calculator.prototype.calculateData = function (evt) {
   const complexTotals = this.calculateTotalCo2Tonnage(totalCarCo2Tonnes, totalTrainCo2Tonnes, totalPlaneCo2Tonnes);
   const simpleTotals = totalRecyclingTonnes + totalHeatingTonnes + totalPetsTonnes + totalMeatTonnes;
 
-  const displayableTotal = complexTotals + simpleTotals;
+  const displayableTotal = Math.round(complexTotals + simpleTotals);
 
   PubSub.publish('Calculator:displayable-total', displayableTotal);
 
