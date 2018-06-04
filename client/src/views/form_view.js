@@ -15,7 +15,9 @@ FormView.prototype.bindEvents = function () {
     const planeField = document.querySelector('#plane');
     const planeValues = event.detail[0].plane;
     const recycleField = document.querySelector('input[name="recycle"]:checked');
-    const recycleValues = event.detail[0].value;
+      console.log('recycleField:', recycleField);
+    const recycleValues = event.detail[0].recycle;
+      console.log('recycleValues:', recycleValues);
     const meatDropdown = document.querySelector('#meatDropdown');
     const meatValues = event.detail[0].meat;
 
@@ -24,7 +26,6 @@ FormView.prototype.bindEvents = function () {
     planeField.value = planeValues;
     recycleField.value = recycleValues;
     meatDropdown.value = meatValues;
-    console.log('recycleValues:', recycleValues);
     });
 
     this.form.addEventListener('submit', (evt) => {
