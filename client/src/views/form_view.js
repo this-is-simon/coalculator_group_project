@@ -16,9 +16,7 @@ FormView.prototype.bindEvents = function () {
     const planeValues = event.detail[0].plane;
     const recycleFieldYes = document.querySelector('#recycle_yes');
     const recycleFieldNo = document.querySelector('#recycle_no');
-      // console.log('recycleField:', recycleField);
     const recycleValues = event.detail[0].recycle;
-      console.log('recycleValues:', recycleValues);
     const meatDropdown = document.querySelector('#meatDropdown');
     const meatValues = event.detail[0].meat;
 
@@ -29,7 +27,6 @@ FormView.prototype.bindEvents = function () {
     trainField.value = trainValues;
     carField.value = carValues;
     planeField.value = planeValues;
-    // recycleField.value = recycleValues;
     meatDropdown.value = meatValues;
     });
 
