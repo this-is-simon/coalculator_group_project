@@ -11,11 +11,12 @@ Calculator.prototype.formSubmitListener = function () {
 };
 
 Calculator.prototype.calculateData = function (evt) {
-  const totalCarCo2Tonnes = this.calculateCar(evt);
+  const totalCarCo2Tonnes = this.calculateCo2Tonnage(evt.car, 0.0066);
+  console.log(totalCarCo2Tonnes);
 };
 
-Calculator.prototype.calculateCar = function (evt) {
-  return evt.car * 0.006;
+Calculator.prototype.calculateCo2Tonnage = function (factor, multiplier) {
+  return factor * multiplier;
 };
 
 module.exports = Calculator;
