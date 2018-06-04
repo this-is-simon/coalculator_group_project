@@ -16,8 +16,8 @@ Co2Data.prototype.getData = function () {
   })
   .catch(console.error);
 };
-//TODO Rename setupSelectListener
-Co2Data.prototype.setupSelectListener = function () {
+
+Co2Data.prototype.formSubmitListener = function () {
   PubSub.subscribe('FormView:updated-data-ready', (evt)=>{
     this.updateData(evt.detail)
   });
