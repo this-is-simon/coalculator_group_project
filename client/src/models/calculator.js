@@ -14,9 +14,15 @@ Calculator.prototype.calculateData = function (evt) {
   const totalCarCo2Tonnes = this.calculateCo2Tonnage(evt.car, 0.0066);
   const totalTrainCo2Tonnes = (this.calculateCo2Tonnage(evt.train, 0.0027)) * 12;
   const totalPlaneCo2Tonnes = this.calculateCo2Tonnage(evt.plane, 5.82);
+  const totalRecyclingTonnes = evt.recycle * 1;
+  const totalHeatingTonnes = evt.heating * 1;
+  const totalPetsTonnes = evt.pets * 1;
+  const totalMeatTonnes = evt.meat * 1;
 
-  const displayableTotal = this.calculateTotalCo2Tonnage(totalCarCo2Tonnes, totalTrainCo2Tonnes, totalPlaneCo2Tonnes);
-  console.log('displayableTotal', displayableTotal);
+  const complexTotals = this.calculateTotalCo2Tonnage(totalCarCo2Tonnes, totalTrainCo2Tonnes, totalPlaneCo2Tonnes);
+  const simpleTotals = totalRecyclingTonnes + totalHeatingTonnes + totalPetsTonnes + totalMeatTonnes;
+
+  const displayableTotal = complexTotals + simpleTotals;
 };
 
 Calculator.prototype.calculateTotalCo2Tonnage = function (totalCar, totalTrain, totalPlane) {
