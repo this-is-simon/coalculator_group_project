@@ -103,7 +103,6 @@ FormView.prototype.sendFormToModel = function(carValues, trainValues, planeValue
       meat: meatValues
   };
   PubSub.publish('FormView:updated-data-ready', allData);
-  console.log('AllData:',  allData);
 };
 
 module.exports = FormView;
