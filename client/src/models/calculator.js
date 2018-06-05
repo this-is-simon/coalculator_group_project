@@ -40,8 +40,8 @@ Calculator.prototype.calculateData = function (processedUserData) {
   let co2Total = 0;
   console.log(processedUserData);
   for (item in processedUserData) {
-    console.log(processedUserData.item);
-    co2Total += processedUserData.item;
+    console.log(processedUserData[item]);
+    co2Total += processedUserData[item];
   };
   console.log("co2data: ",co2Total);
 
