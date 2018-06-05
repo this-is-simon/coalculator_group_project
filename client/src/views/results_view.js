@@ -16,7 +16,6 @@ ResultsView.prototype.getResults = function () {
 
 ResultsView.prototype.bindEvents = function () {
   PubSub.subscribe('Calculator:processed-user-data', (evt) => {
-    console.log('from results view, this is the subscribe', evt.detail);
     const highchartGraph = new GraphView();
     highchartGraph.displayGraph(evt.detail);
   })

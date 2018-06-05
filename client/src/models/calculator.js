@@ -30,9 +30,8 @@ Calculator.prototype.groupUserData = function (evt) {
     meat: totalMeatTonnes
   }
 
-  console.log('publishing processed user data');
   PubSub.publish('Calculator:processed-user-data', processedUserData);
-  console.log("processedUserData: ",processedUserData);
+
   return processedUserData;
 }
 

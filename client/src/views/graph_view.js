@@ -5,7 +5,6 @@ const GraphView = function(){
 };
 
 GraphView.prototype.displayGraph = function (processedUserData) {
-console.log(processedUserData);
   const body = document.querySelector('#graph-view');
   const highchartGraphDiv = document.createElement('div');
   highchartGraphDiv.setAttribute('id', 'container');
@@ -48,13 +47,12 @@ console.log(processedUserData);
     },
     series: [{
       name: 'Your Carbon Footprint',
-      data: [60, 6.48, 11.64, 0.6, 8.1, 1, 1]
+      data: [processedUserData.car, processedUserData.train, processedUserData.plane, processedUserData.recycling, processedUserData.heating, processedUserData.pets, processedUserData.meat]
     }, {
       name: 'UK Average Carbon Footprint',
       data: [52.8, 1.46, 8.73, 1.8, 7.7, 2, 1.5]
     }]
   });
-  debugger
 
   return highchartGraphDiv;
 };
