@@ -10,10 +10,6 @@ app.use(express.static(publicPath));
 app.use(parser.json());
 app.use(indexRouter);
 
-// app.get('/', function (req, res) {
-//   res.send('Hello from server.js!');
-// });
-
 app.listen(3000, function() {
   console.log(`LEWIS! Listening on port ${ this.address().port }`);
 });

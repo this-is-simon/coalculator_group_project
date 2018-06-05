@@ -17,13 +17,10 @@ GraphView.prototype.displayGraph = function () {
       type: 'bar'
     },
     title: {
-      text: 'Historic World Population by Region'
-    },
-    subtitle: {
-      text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+      text: ''
     },
     xAxis: {
-      categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+      categories: ['Car', 'Train', 'Flights', 'Recycling', 'Heating', 'Pets', 'Diet'],
       title: {
         text: null
       }
@@ -31,15 +28,15 @@ GraphView.prototype.displayGraph = function () {
     yAxis: {
       min: 0,
       title: {
-        text: 'Population (millions)',
-        align: 'high'
+        text: 'CO2 (tonnes)',
+        align: 'middle'
       },
       labels: {
         overflow: 'justify'
       }
     },
     tooltip: {
-      valueSuffix: ' millions'
+      valueSuffix: ' tonnes'
     },
     plotOptions: {
       bar: {
@@ -48,32 +45,26 @@ GraphView.prototype.displayGraph = function () {
         }
       }
     },
-    legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'top',
-      x: -40,
-      y: 80,
-      floating: true,
-      borderWidth: 1,
-      backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-      shadow: true
-    },
+    // legend: {
+    //   layout: 'vertical',
+    //   align: 'right',
+    //   verticalAlign: 'top',
+    //   x: -40,
+    //   y: 80,
+    //   floating: true,
+    //   borderWidth: 1,
+    //   backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+    //   shadow: true
+    // },
     credits: {
       enabled: false
     },
     series: [{
-      name: 'Year 1800',
-      data: [107, 31, 635, 400, 2]
+      name: 'Your Carbon Footprint',
+      data: [60, 6.48, 11.64, 0.6, 8.1, 1, 1]
     }, {
-      name: 'Year 1900',
-      data: [133, 156, 947, 408, 6]
-    }, {
-      name: 'Year 2000',
-      data: [814, 20, 3714, 727, 31]
-    }, {
-      name: 'Year 2016',
-      data: [1216, 81, 4436, 738, 40]
+      name: 'UK Average Carbon Footprint',
+      data: [52.8, 1.46, 8.73, 1.8, 7.7, 2, 1.5]
     }]
   });
   return highchartGraphDiv;
