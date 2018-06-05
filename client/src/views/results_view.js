@@ -10,11 +10,12 @@ ResultsView.prototype.getResults = function () {
     this.resultsContainer.innerHTML = '';
     const displayableTotal = document.createElement('p');
     displayableTotal.textContent = `Your carbon footprint is ${evt.detail} tonnes a year.`;
+
     this.resultsContainer.appendChild(displayableTotal);
 
     const highchartGraph = new GraphView();
     highchartGraph.displayGraph();
-    
+
   });
 };
 

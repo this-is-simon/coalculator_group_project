@@ -6,7 +6,8 @@ const GraphView = function(){
 
 GraphView.prototype.displayGraph = function () {
 
-  const body = document.querySelector('body');
+  //div is created to put graph in
+  const body = document.querySelector('#results-view');
   const highchartGraphDiv = document.createElement('div');
   highchartGraphDiv.setAttribute('id', 'container');
   body.appendChild(highchartGraphDiv);
