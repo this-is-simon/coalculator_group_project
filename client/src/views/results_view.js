@@ -1,4 +1,5 @@
-const PubSub = require("../helpers/pub_sub.js");
+const PubSub = require('../helpers/pub_sub.js');
+const GraphView = require('./graph_view.js');
 
 const ResultsView = function(resultsContainer){
   this.resultsContainer = resultsContainer;
@@ -10,6 +11,10 @@ ResultsView.prototype.getResults = function () {
     const displayableTotal = document.createElement('p');
     displayableTotal.textContent = `Your carbon footprint is ${evt.detail} tonnes a year.`;
     this.resultsContainer.appendChild(displayableTotal);
+
+    const highchartGraph = new GraphView();
+    highchartGraph.displayGraph();
+    
   });
 };
 
