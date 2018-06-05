@@ -20,11 +20,10 @@ h1 {
 }
 
 #form {
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, .8);
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-top: 25px;
   max-width: 600px;
   min-width: 600px;
   padding: 20px;
@@ -32,15 +31,19 @@ h1 {
 }
 
 #results-view {
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, .8);
   display: flex;
-  flex-direction: column;
   margin: auto;
-  margin-top: 25px;
   max-width: 600px;
   min-width: 600px;
-  padding: 20px;
+  padding: 5px;
+  padding-left: 20px;
   text-align: center;
+}
+
+.display-view {
+  display: flex;
+  flex-direction: column;
 }
 
 #form-item {
