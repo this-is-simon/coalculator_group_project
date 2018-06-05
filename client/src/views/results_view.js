@@ -7,10 +7,9 @@ const ResultsView = function(resultsContainer){
 
 ResultsView.prototype.getResults = function () {
   PubSub.subscribe('Calculator:displayable-total', (evt) => {
-    // this.resultsContainer.innerHTML = '';
+    this.resultsContainer.innerHTML = '';
     const displayableTotal = document.createElement('p');
     displayableTotal.textContent = `Your carbon footprint is ${evt.detail} tonnes a year.`;
-
     this.resultsContainer.appendChild(displayableTotal);
   });
 };
