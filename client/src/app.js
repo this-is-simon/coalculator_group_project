@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formView = new FormView(form);
   formView.bindEvents();
   const resultsView = new ResultsView(resultsContainer);
+  resultsView.bindEvents();
   resultsView.getResults();
 
   const url = 'http://localhost:3000/api/co2';

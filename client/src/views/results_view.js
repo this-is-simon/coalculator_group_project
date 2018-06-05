@@ -7,16 +7,20 @@ const ResultsView = function(resultsContainer){
 
 ResultsView.prototype.getResults = function () {
   PubSub.subscribe('Calculator:displayable-total', (evt) => {
-    this.resultsContainer.innerHTML = '';
+    // this.resultsContainer.innerHTML = '';
     const displayableTotal = document.createElement('p');
     displayableTotal.textContent = `Your carbon footprint is ${evt.detail} tonnes a year.`;
 
     this.resultsContainer.appendChild(displayableTotal);
-
-    const highchartGraph = new GraphView();
-    highchartGraph.displayGraph();
-
   });
+};
+
+ResultsView.prototype.bindEvents = function () {
+  PubSub.subscribe('Calculator:processed-user-data', (evt) => {
+    console.log('from results view, this is the subscribe', evt.detail);
+    const highchartGraph = new GraphView();
+    highchartGraph.displayGraph(evt.detail);
+  })
 };
 
 module.exports = ResultsView;

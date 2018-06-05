@@ -7,7 +7,6 @@ const Calculator = function(){
 Calculator.prototype.formSubmitListener = function () {
   PubSub.subscribe('FormView:updated-data-ready', (evt)=>{
     const userDataResult = this.groupUserData(evt.detail);
-    console.log(userDataResult);
     this.calculateData(userDataResult);
   });
 };
@@ -31,24 +30,21 @@ Calculator.prototype.groupUserData = function (evt) {
     meat: totalMeatTonnes
   }
 
-  return processedUserData;
-
+  console.log('publishing processed user data');
+  PubSub.publish('Calculator:processed-user-data', processedUserData);
   console.log("processedUserData: ",processedUserData);
+  return processedUserData;
 }
 
 Calculator.prototype.calculateData = function (processedUserData) {
   let co2Total = 0;
-  console.log(processedUserData);
   for (item in processedUserData) {
-    console.log(processedUserData[item]);
     co2Total += processedUserData[item];
   };
-  console.log("co2data: ",co2Total);
 
   const displayableTotal = parseFloat( co2Total.toFixed(2) );
 
   PubSub.publish('Calculator:displayable-total', displayableTotal);
-
 };
 
 

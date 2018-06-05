@@ -4,14 +4,12 @@ require('highcharts/modules/exporting')(Highcharts);
 const GraphView = function(){
 };
 
-GraphView.prototype.displayGraph = function () {
-
-  //div is created to put graph in
-  const body = document.querySelector('#results-view');
+GraphView.prototype.displayGraph = function (processedUserData) {
+console.log(processedUserData);
+  const body = document.querySelector('#graph-view');
   const highchartGraphDiv = document.createElement('div');
   highchartGraphDiv.setAttribute('id', 'container');
   body.appendChild(highchartGraphDiv);
-
   Highcharts.chart('container', {
     chart: {
       type: 'bar'
@@ -56,6 +54,8 @@ GraphView.prototype.displayGraph = function () {
       data: [52.8, 1.46, 8.73, 1.8, 7.7, 2, 1.5]
     }]
   });
+  debugger
+
   return highchartGraphDiv;
 };
 
