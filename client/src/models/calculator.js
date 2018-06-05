@@ -6,11 +6,13 @@ const Calculator = function(){
 
 Calculator.prototype.formSubmitListener = function () {
   PubSub.subscribe('FormView:updated-data-ready', (evt)=>{
-    this.calculateData(evt.detail)
+    const userDataResult = this.groupUserData(evt.detail);
+    console.log(userDataResult);
+    this.calculateData(userDataResult);
   });
 };
 
-Calculator.prototype.calculateData = function (evt) {
+Calculator.prototype.groupUserData = function (evt) {
   const totalCarCo2Tonnes = this.calculateCo2Tonnage(evt.car, 0.0066);
   const totalTrainCo2Tonnes = (this.calculateCo2Tonnage(evt.train, 0.0027)) * 12;
   const totalPlaneCo2Tonnes = this.calculateCo2Tonnage(evt.plane, 5.82);
@@ -19,14 +21,37 @@ Calculator.prototype.calculateData = function (evt) {
   const totalPetsTonnes = evt.pets * 1;
   const totalMeatTonnes = evt.meat * 1;
 
-  const complexTotals = this.calculateTotalCo2Tonnage(totalCarCo2Tonnes, totalTrainCo2Tonnes, totalPlaneCo2Tonnes);
-  const simpleTotals = totalRecyclingTonnes + totalHeatingTonnes + totalPetsTonnes + totalMeatTonnes;
+  const processedUserData = {
+    car: totalCarCo2Tonnes,
+    train: totalTrainCo2Tonnes,
+    plane: totalPlaneCo2Tonnes,
+    recycling: totalRecyclingTonnes,
+    heating: totalHeatingTonnes,
+    pets: totalPetsTonnes,
+    meat: totalMeatTonnes
+  }
 
-  const displayableTotal = parseFloat( (complexTotals + simpleTotals).toFixed(2) );
+  return processedUserData;
+
+  console.log("processedUserData: ",processedUserData);
+}
+
+Calculator.prototype.calculateData = function (processedUserData) {
+  let co2Total = 0;
+  console.log(processedUserData);
+  for (item in processedUserData) {
+    console.log(processedUserData.item);
+    co2Total += processedUserData.item;
+  };
+  console.log("co2data: ",co2Total);
+
+  const displayableTotal = parseFloat( co2Total.toFixed(2) );
 
   PubSub.publish('Calculator:displayable-total', displayableTotal);
 
 };
+
+
 
 Calculator.prototype.calculateTotalCo2Tonnage = function (totalCar, totalTrain, totalPlane) {
   return totalCar + totalTrain + totalPlane;
