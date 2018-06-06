@@ -10,8 +10,10 @@ GraphView.prototype.displayGraph = function (processedUserData) {
   highchartGraphDiv.setAttribute('id', 'container');
   body.appendChild(highchartGraphDiv);
   Highcharts.chart('container', {
+
     chart: {
-      type: 'bar'
+      type: 'bar',
+      backgroundColor:'rgba(255, 255, 255, 0.8)'
     },
     title: {
       text: ''
@@ -40,6 +42,10 @@ GraphView.prototype.displayGraph = function (processedUserData) {
         dataLabels: {
           enabled: true
         }
+      },
+      series: {
+            pointPadding: 0.1,
+            groupPadding: 0.1,
       }
     },
     credits: {
