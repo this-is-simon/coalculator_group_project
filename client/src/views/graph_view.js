@@ -22,9 +22,8 @@ GraphView.prototype.displayGraph = function (processedUserData) {
             layout: 'horizontal',
             align: 'center',
             verticalAlign: 'top',
-            floating: false,
-
-        },
+            floating: false
+    },
     xAxis: {
       categories: ['Car', 'Train', 'Flights', 'Recycling', 'Heating', 'Pets', 'Diet'],
       title: {
@@ -34,7 +33,7 @@ GraphView.prototype.displayGraph = function (processedUserData) {
     yAxis: {
       min: 0,
       title: {
-        text: 'CO2 (tonnes)',
+        text: 'Greenhouse Emissions (tonnes)',
         align: 'middle'
       },
       labels: {
