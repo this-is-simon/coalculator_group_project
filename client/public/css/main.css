@@ -47,12 +47,9 @@ h1 {
   background-color: rgba(255, 255, 255, .8);
   flex-direction: column;
   display: flex;
-  flex: 2;
   justify-content: center;
   margin: 0px;
-  /* min-width: 500px; */
-  padding: 0px;
-  /* padding-left: 20px; */
+  padding: 10px 0px;
   text-align: center;
 }
 
@@ -64,6 +61,8 @@ h1 {
   display: flex;
   flex-direction: column;
   margin: 0px;
+  width: 600px;
+  justify-content: center;
 }
 
 #form-item {
@@ -109,4 +108,16 @@ button {
   padding-right: 10px;
   padding-top: 7px;
   padding-bottom: 5px;
+}
+
+@media (max-width: 1200px) {
+  .display-view {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  #results-view {
+    margin-top: 10px;
+    width: 600px;
+  }
 }
