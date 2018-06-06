@@ -19,11 +19,11 @@ GraphView.prototype.displayGraph = function (processedUserData) {
       text: ''
     },
     legend: {
-            layout: 'vertical',
+            layout: 'horizontal',
             align: 'center',
             verticalAlign: 'top',
             floating: false,
-            // backgroundColor: 'rgba(255, 255, 255, 0.8)'
+
         },
     xAxis: {
       categories: ['Car', 'Train', 'Flights', 'Recycling', 'Heating', 'Pets', 'Diet'],
