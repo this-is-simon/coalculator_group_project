@@ -18,6 +18,13 @@ GraphView.prototype.displayGraph = function (processedUserData) {
     title: {
       text: ''
     },
+    legend: {
+            layout: 'vertical',
+            align: 'center',
+            verticalAlign: 'top',
+            floating: false,
+            // backgroundColor: 'rgba(255, 255, 255, 0.8)'
+        },
     xAxis: {
       categories: ['Car', 'Train', 'Flights', 'Recycling', 'Heating', 'Pets', 'Diet'],
       title: {
@@ -52,10 +59,10 @@ GraphView.prototype.displayGraph = function (processedUserData) {
       enabled: false
     },
     series: [{
-      name: 'Your Carbon Footprint',
+      name: 'Your Footprint',
       data: [processedUserData.car, processedUserData.train, processedUserData.plane, processedUserData.recycling, processedUserData.heating, processedUserData.pets, processedUserData.meat]
     }, {
-      name: 'UK Average Carbon Footprint',
+      name: 'UK Average',
       data: [52.8, 1.46, 8.73, 1.8, 7.7, 2, 1.5]
     }]
   });
