@@ -46,12 +46,6 @@ Calculator.prototype.calculateData = function (processedUserData) {
   PubSub.publish('Calculator:displayable-total', displayableTotal);
 };
 
-
-
-Calculator.prototype.calculateTotalCo2Tonnage = function (totalCar, totalTrain, totalPlane) {
-  return totalCar + totalTrain + totalPlane;
-};
-
 Calculator.prototype.calculateCo2Tonnage = function (factor, multiplier) {
   return factor * multiplier;
 };
