@@ -30,4 +30,4 @@ We were able to consolidate our learning of vanilla JavaScript and Node.js as we
 
 We learned the importance of UML diagrams as we became confused at one point after making a change, in terms of where our data was being sent and where it was being received. In future we will make sure to keep a diagrammatic record of any changes to programme structure.
 
-All in all it was an extremely positive experience and we are pleased with the result, although the code can certainly be refactored and improved.
+The code can certainly be refactored and improved and the CSS needs to be made responsive, but all in all it was an extremely positive experience and we are pleased with the result.
