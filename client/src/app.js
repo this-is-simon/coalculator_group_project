@@ -4,7 +4,7 @@ const FormView = require('./views/form_view.js');
 const ResultsView = require('./views/results_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("hola bitchachos: Content Loaded");
+  console.log("Content Loaded");
   const form = document.querySelector('#form');
   const resultsContainer = document.querySelector('#results-view')
 
